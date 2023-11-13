@@ -56,7 +56,7 @@ export default function Home() {
 
           <ButtonGroup fullWidth variant="contained" aria-label="outlined primary button group">
             <Button onClick = {() => setInput(input + "/")}> / </Button>
-            <Button onClick = {() => setInput(input + "x")}> x </Button>
+            <Button onClick = {() => setInput(input + "*")}> * </Button>
             <Button onClick = {() => setInput(input + "-")}> - </Button>
             <Button onClick = {() => setInput(input + "+")}> + </Button>
 
