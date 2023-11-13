@@ -8,9 +8,16 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
 import React, { useState } from "react";
-
+import {create,all} from "mathjs";
 export default function Home() {
   const [input, setInput] = useState("");
+  const [answer,setAnswer] = useState("");
+  const math = create(all);
+
+  const handleClick = () => {
+    setAnswer(math.evaluate(input))
+  };
+
   return (
     <Box>
       <Stack  direction="column" justifyContent="cenetr" alignItems="center" spacing={2}>
@@ -20,6 +27,7 @@ export default function Home() {
 
         <Box sx =  {{backgroundColor: 'white'}}>
           <Stack direction = 'column'>
+          {answer}
           <TextField value={input} onChange={(e) => setInput(e.target.value)}/>
           
           <ButtonGroup fullWidth variant="contained" aria-label="outlined primary button group">
@@ -53,7 +61,7 @@ export default function Home() {
             <Button onClick = {() => setInput(input + "+")}> + </Button>
 
           </ButtonGroup>
-          <Button> Solve </Button>
+          <Button onClick = {handleClick}> Solve </Button>
 
    
           </Stack>
